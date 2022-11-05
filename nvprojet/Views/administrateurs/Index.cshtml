@@ -1,0 +1,47 @@
+﻿@model IEnumerable<nvprojet.Models.administrateur>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br /><br />
+<h2 style="font-size:50px;margin-left:210px">liste des administrateurs</h2>
+<br />
+<br />
+
+
+<p style="margin-left:90%">
+
+    <a class="btn btn-primary" style="color:white" href="/admin/ajouter">Ajouter un administrateur</a>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenom)
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom)
+            </td>
+
+            <td>
+                <a class="btn btn-success" style="color:white" href="/admin/modifier/@item.id">modifier</a>
+                <a class="btn btn-info" style="color:white" href="/admin/details/@item.id">details</a>
+                <a class="btn btn-danger" style="color:white" href="/admin/supprimer/@item.id">supprimer</a>
+            </td>
+        </tr>
+    }
+
+</table>

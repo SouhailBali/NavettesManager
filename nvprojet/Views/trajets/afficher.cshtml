@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "afficher";
+    Layout = "~/Views/_LayoutSociete.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<br />
+<br />
+<h1>Bienvenu @Session["nom_s"]</h1>
+<br />
+<br />
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-shop-product">
+                        <div class="product-upper">
+                           
+                            <img src="~/Images/@item.img" alt="" width="280" height="160">
+                        </div>
+
+                        <div class="product-carousel-price">
+
+                            <h4>place : @item.Nbr_place</h4>
+
+                            <h5>@item.ville_depart - @item.ville_arriver</h5>
+
+                            <h5>@item.heure_dep - @item.heur_arv</h5>
+
+                        </div>
+
+                        
+                    </div>
+                </div>
+           
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+

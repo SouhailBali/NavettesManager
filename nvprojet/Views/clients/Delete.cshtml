@@ -1,0 +1,66 @@
+﻿@model nvprojet.Models.client
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br /><br />
+
+<h2>voulez vous vraiment supprimer ce client ?</h2>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prenom_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prenom_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+
+    <form action="/client/supprimer/@Model.id" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a class="btn btn-lg" href="/client">retour</a>
+            <input type="submit" value="supprimer" class="btn btn-danger" /> 
+            
+        </div>
+    </form>
+</div>

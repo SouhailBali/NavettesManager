@@ -1,0 +1,74 @@
+﻿@model nvprojet.Models.societe
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br /><br />
+
+<h3>voulez-vous vraiment supprimer cette societe?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_s)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.siege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.siege)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pattente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pattente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_s)
+        </dd>
+
+        
+
+    </dl>
+
+   <form method="post" action="/societe/supprimer/@Model.id">
+        @Html.AntiForgeryToken()
+
+       <div class="form-actions no-color">
+           <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-lg" href="/societe">retour</a>
+       </div>
+    </form>
+</div>

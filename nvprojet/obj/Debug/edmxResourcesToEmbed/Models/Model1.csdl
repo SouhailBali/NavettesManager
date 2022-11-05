@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="abennement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date_debut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="date_fin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_client" Type="Int32" />
+    <Property Name="id_trajet" Type="Int32" />
+    <NavigationProperty Name="client" Relationship="Self.FK__abennemen__id_cl__33D4B598" FromRole="abennement" ToRole="client" />
+    <NavigationProperty Name="trajet" Relationship="Self.FK__abennemen__id_tr__34C8D9D1" FromRole="abennement" ToRole="trajet" />
+  </EntityType>
+  <EntityType Name="administrateur">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="prenom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="logn" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="passwd" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="autocar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="libele" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="marque" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="wifi" Type="Boolean" />
+    <Property Name="Nbr_place" Type="Int32" />
+    <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_ste" Type="Int32" />
+    <NavigationProperty Name="societe" Relationship="Self.FK__autocar__id_ste__25869641" FromRole="autocar" ToRole="societe" />
+    <NavigationProperty Name="trajets" Relationship="Self.FK__trajet__id_aut__286302EC" FromRole="autocar" ToRole="trajet" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_cli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="prenom_cli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="adresse" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="Int32" />
+    <Property Name="login_cli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mdp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="abennements" Relationship="Self.FK__abennemen__id_cl__33D4B598" FromRole="client" ToRole="abennement" />
+    <NavigationProperty Name="demandes" Relationship="Self.FK__demande__id_cli__37A5467C" FromRole="client" ToRole="demande" />
+  </EntityType>
+  <EntityType Name="demande">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ville_d" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ville_a" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="heure_d" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="heur_a" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id_cli" Type="Int32" />
+    <NavigationProperty Name="client" Relationship="Self.FK__demande__id_cli__37A5467C" FromRole="demande" ToRole="client" />
+  </EntityType>
+  <EntityType Name="societe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_s" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="siege" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="pattente" Type="Int32" />
+    <Property Name="fix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email_s" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="logn_s" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="passwd_s" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="autocars" Relationship="Self.FK__autocar__id_ste__25869641" FromRole="societe" ToRole="autocar" />
+  </EntityType>
+  <EntityType Name="trajet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ville_depart" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ville_arriver" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="heure_dep" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="heur_arv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id_aut" Type="Int32" />
+    <NavigationProperty Name="abennements" Relationship="Self.FK__abennemen__id_tr__34C8D9D1" FromRole="trajet" ToRole="abennement" />
+    <NavigationProperty Name="autocar" Relationship="Self.FK__trajet__id_aut__286302EC" FromRole="trajet" ToRole="autocar" />
+  </EntityType>
+  <Association Name="FK__abennemen__id_cl__33D4B598">
+    <End Role="client" Type="Self.client" Multiplicity="0..1" />
+    <End Role="abennement" Type="Self.abennement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="abennement">
+        <PropertyRef Name="id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__abennemen__id_tr__34C8D9D1">
+    <End Role="trajet" Type="Self.trajet" Multiplicity="0..1" />
+    <End Role="abennement" Type="Self.abennement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trajet">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="abennement">
+        <PropertyRef Name="id_trajet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__autocar__id_ste__25869641">
+    <End Role="societe" Type="Self.societe" Multiplicity="0..1" />
+    <End Role="autocar" Type="Self.autocar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="societe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="autocar">
+        <PropertyRef Name="id_ste" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__trajet__id_aut__286302EC">
+    <End Role="autocar" Type="Self.autocar" Multiplicity="0..1" />
+    <End Role="trajet" Type="Self.trajet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autocar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trajet">
+        <PropertyRef Name="id_aut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__demande__id_cli__37A5467C">
+    <End Role="client" Type="Self.client" Multiplicity="0..1" />
+    <End Role="demande" Type="Self.demande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="demande">
+        <PropertyRef Name="id_cli" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TransportEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="abennements" EntityType="Self.abennement" />
+    <EntitySet Name="administrateurs" EntityType="Self.administrateur" />
+    <EntitySet Name="autocars" EntityType="Self.autocar" />
+    <EntitySet Name="clients" EntityType="Self.client" />
+    <EntitySet Name="demandes" EntityType="Self.demande" />
+    <EntitySet Name="societes" EntityType="Self.societe" />
+    <EntitySet Name="trajets" EntityType="Self.trajet" />
+    <AssociationSet Name="FK__abennemen__id_cl__33D4B598" Association="Self.FK__abennemen__id_cl__33D4B598">
+      <End Role="client" EntitySet="clients" />
+      <End Role="abennement" EntitySet="abennements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__abennemen__id_tr__34C8D9D1" Association="Self.FK__abennemen__id_tr__34C8D9D1">
+      <End Role="trajet" EntitySet="trajets" />
+      <End Role="abennement" EntitySet="abennements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__autocar__id_ste__25869641" Association="Self.FK__autocar__id_ste__25869641">
+      <End Role="societe" EntitySet="societes" />
+      <End Role="autocar" EntitySet="autocars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__trajet__id_aut__286302EC" Association="Self.FK__trajet__id_aut__286302EC">
+      <End Role="autocar" EntitySet="autocars" />
+      <End Role="trajet" EntitySet="trajets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__demande__id_cli__37A5467C" Association="Self.FK__demande__id_cli__37A5467C">
+      <End Role="client" EntitySet="clients" />
+      <End Role="demande" EntitySet="demandes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

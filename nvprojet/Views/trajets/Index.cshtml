@@ -1,0 +1,60 @@
+﻿@model IEnumerable<nvprojet.Models.trajet>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h2 style="font-size:70px;margin-left:230px">Gestion des trajets</h2><br /><br /><br />
+
+@*<p style="margin-left:90%">
+   
+        <a class="btn btn-primary" style="color:white" href="/trajet/ajouter">Ajouter un Trajet</a>
+   
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ville_depart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ville_arriver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.heure_dep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.heur_arv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.autocar.libele)
+        </th>
+        <th> Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville_depart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville_arriver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.heure_dep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.heur_arv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.autocar.libele)
+        </td>
+        <td>
+
+            <a class="btn btn-success" style="color:white" href="/trajet/modifier/@item.id">modifier</a>
+            <a class="btn btn-info" style="color:white" href="/trajet/details/@item.id">details</a>
+            <a class="btn btn-danger" style="color:white" href="/trajet/supprimer/@item.id">supprimer</a>
+        </td>
+    </tr>
+}
+
+</table>

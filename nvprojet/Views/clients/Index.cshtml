@@ -1,0 +1,62 @@
+﻿@model IEnumerable<nvprojet.Models.client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2 style="font-size:70px;margin-left:230px">liste des clients</h2>
+<br />
+<br />
+<br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenom_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                <a class="btn btn-success" style="color:white" href="/client/modifier/@item.id">modifier</a>
+                <a class="btn btn-info" style="color:white" href="/client/details/@item.id">details</a>
+                <a class="btn btn-danger" style="color:white" href="/client/supprimer/@item.id">supprimer</a>
+            </td>
+        </tr>
+    }
+
+</table>

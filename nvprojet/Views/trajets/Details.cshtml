@@ -1,0 +1,65 @@
+﻿@model nvprojet.Models.trajet
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<br />
+
+<h3>Detail du trajet : </h3>
+
+
+<hr />
+
+<div>
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ville_depart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ville_depart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ville_arriver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ville_arriver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.heure_dep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.heure_dep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.heur_arv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.heur_arv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.autocar.libele)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.autocar.libele)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-lg" href="/trajet">retour</a>
+    <a class="btn btn-success" style="color:white" href="/trajet/modifier/@Model.id">modifier</a>
+
+</p>

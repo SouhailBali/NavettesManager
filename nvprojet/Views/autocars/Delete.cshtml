@@ -1,0 +1,69 @@
+﻿@model nvprojet.Models.autocar
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br /><br />
+      <h2>voulez vous vraiment supprimer le véhicule ?</h2><br />
+<img src="~/images/@Model.img" width="450" height="250" /><br />
+
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libele)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libele)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wifi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wifi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nbr_place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nbr_place)
+        </dd>
+
+       
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.societe.nom_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.societe.nom_s)
+        </dd>
+
+    </dl>
+
+    <form action="/autocars/supprimer/@Model.id" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+           <a class="btn btn-lg" href="/autocars">retour</a>
+            <input type="submit" value="supprimer" class="btn btn-danger" />
+
+        </div>
+    </form>
+</div>

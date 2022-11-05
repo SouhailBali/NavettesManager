@@ -1,0 +1,50 @@
+﻿@model IEnumerable<nvprojet.Models.demande>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutSociete.cshtml";
+}
+
+<h2>les demandes des clients</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ville_d)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ville_a)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.heure_d)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.heur_a)
+        </th>
+       
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville_d)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville_a)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.heure_d)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.heur_a)
+        </td>
+      
+        <td>
+           <a href="/demande/confirmer/@item.id" class="btn btn-primary">valider</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,67 @@
+﻿@model nvprojet.Models.societe
+
+@{
+    ViewBag.Title = "Details";
+}
+<br /><br />
+<h2>Details de la societe</h2>
+
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_s)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.siege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.siege)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pattente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pattente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_s)
+        </dd>
+
+       
+    </dl>
+</div>
+<p>
+   <a class="btn btn-lg" href="/societe">retour</a>
+    <a  class="btn btn-success" style="color:white" href="/societe/modifier/@Model.id">modifier</a>
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<nvprojet.Models.autocar>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h2 style="font-size:70px;margin-left:220px">liste des véhicules</h2>
+<br />
+<br />
+<br />
+
+@*<p style="margin-left:90%">
+
+            <a class="btn btn-primary" style="color:white" href="/autocars/ajouter">Ajouter un véhicule</a>
+
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wifi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nbr_place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.societe.nom_s)
+        </th>
+        <th> Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.libele)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wifi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nbr_place)
+            </td>
+            <td>
+                <img src="~/images/@item.img" width="300" height="160" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.societe.nom_s)
+            </td>
+            <td>
+                <a class="btn btn-success" style="color:white" href="/autocars/modifier/@item.id">modifier</a>
+                <a class="btn btn-info" style="color:white" href="/autocars/details/@item.id">details</a>
+                <a class="btn btn-danger" style="color:white" href="/autocars/supprimer/@item.id">supprimer</a>
+            </td>
+        </tr>
+    }
+
+</table>

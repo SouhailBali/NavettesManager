@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TransportModelStoreContainer" CdmEntityContainer="TransportEntities">
+    <EntitySetMapping Name="abennements">
+      <EntityTypeMapping TypeName="TransportModel.abennement">
+        <MappingFragment StoreEntitySet="abennement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="id_trajet" ColumnName="id_trajet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="administrateurs">
+      <EntityTypeMapping TypeName="TransportModel.administrateur">
+        <MappingFragment StoreEntitySet="administrateur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="logn" ColumnName="logn" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autocars">
+      <EntityTypeMapping TypeName="TransportModel.autocar">
+        <MappingFragment StoreEntitySet="autocar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="libele" ColumnName="libele" />
+          <ScalarProperty Name="marque" ColumnName="marque" />
+          <ScalarProperty Name="wifi" ColumnName="wifi" />
+          <ScalarProperty Name="Nbr_place" ColumnName="Nbr_place" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="id_ste" ColumnName="id_ste" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="TransportModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom_cli" ColumnName="nom_cli" />
+          <ScalarProperty Name="prenom_cli" ColumnName="prenom_cli" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="login_cli" ColumnName="login_cli" />
+          <ScalarProperty Name="mdp" ColumnName="mdp" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="demandes">
+      <EntityTypeMapping TypeName="TransportModel.demande">
+        <MappingFragment StoreEntitySet="demande">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ville_d" ColumnName="ville_d" />
+          <ScalarProperty Name="ville_a" ColumnName="ville_a" />
+          <ScalarProperty Name="heure_d" ColumnName="heure_d" />
+          <ScalarProperty Name="heur_a" ColumnName="heur_a" />
+          <ScalarProperty Name="id_cli" ColumnName="id_cli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="societes">
+      <EntityTypeMapping TypeName="TransportModel.societe">
+        <MappingFragment StoreEntitySet="societe">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom_s" ColumnName="nom_s" />
+          <ScalarProperty Name="siege" ColumnName="siege" />
+          <ScalarProperty Name="pattente" ColumnName="pattente" />
+          <ScalarProperty Name="fix" ColumnName="fix" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="email_s" ColumnName="email_s" />
+          <ScalarProperty Name="logn_s" ColumnName="logn_s" />
+          <ScalarProperty Name="passwd_s" ColumnName="passwd_s" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trajets">
+      <EntityTypeMapping TypeName="TransportModel.trajet">
+        <MappingFragment StoreEntitySet="trajet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ville_depart" ColumnName="ville_depart" />
+          <ScalarProperty Name="ville_arriver" ColumnName="ville_arriver" />
+          <ScalarProperty Name="heure_dep" ColumnName="heure_dep" />
+          <ScalarProperty Name="heur_arv" ColumnName="heur_arv" />
+          <ScalarProperty Name="id_aut" ColumnName="id_aut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

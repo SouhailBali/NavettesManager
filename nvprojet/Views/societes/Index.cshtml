@@ -1,0 +1,72 @@
+﻿@model IEnumerable<nvprojet.Models.societe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="font-size:65px;margin-left:230px">liste des sociétes</h2>
+<br />
+<br />
+<br />
+
+@*<p style="margin-left:90%">
+
+            <a class="btn btn-primary" style="color:white" href="/societe/ajouter">inscrire</a>
+
+    </p>*@
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_s)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.siege)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pattente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_s)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.siege)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pattente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_s)
+            </td>
+
+            <td>
+                <a class="btn btn-success" style="color:white" href="/societe/modifier/@item.id">modifier</a>
+                <a class="btn btn-info" style="color:white" href="/societe/details/@item.id">details</a>
+                <a class="btn btn-danger" style="color:white" href="/societe/supprimer/@item.id">supprimer</a>
+            </td>
+        </tr>
+    }
+
+</table>

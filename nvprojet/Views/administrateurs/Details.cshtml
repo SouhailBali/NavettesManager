@@ -1,0 +1,50 @@
+﻿@model nvprojet.Models.administrateur
+
+@{
+    ViewBag.Title = "Details";
+}
+<br /><br />
+<h2>Details de l'administrateur </h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-success" style="color:white" href="/admin/modifier/@Model.id">modifier</a>
+    <a class="btn btn-lg" href="/admin">retour</a>
+</p>
